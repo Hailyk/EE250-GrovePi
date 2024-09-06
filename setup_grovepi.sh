@@ -22,7 +22,7 @@ sudo rm .tmp_updategrovepi
 echo "Grove Lib update complete."
 
 echo "Pulling new firmware" 
-(cd /home/pi/Desktop/GrovePi; sudo git fetch origin; sudo git reset --hard; sudo git merge origin/master)
+(cd /home/pi/Dexter/GrovePi; sudo git fetch origin; sudo git reset --hard; sudo git merge origin/master)
 
 echo "reflashing firmware, when prompted, type y and enter to start flashing."
 (cd /home/pi/Dexter/GrovePi/Firmware/; firmware_update.sh)
