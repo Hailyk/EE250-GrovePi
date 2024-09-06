@@ -21,14 +21,20 @@ sudo -u pi bash .tmp_updategrovepi
 sudo rm .tmp_updategrovepi
 echo "Grove Lib update complete."
 
+echo "Pulling new firmware" 
+(cd /home/pi/Dexter/GrovePi; sudo git fetch origin; sudo git reset --hard; sudo git merge origin/master)
+
 echo "reflashing firmware, when prompted, type y and enter to start flashing."
-sudo bash /home/pi/Dexter/GrovePi/Firmware/firmware_update.sh 
+(cd /home/pi/Dexter/GrovePi/Firmware/; ./firmware_update.sh)
 y
 echo "Flashing Complete"
 
 echo "Reenabling I2C and SPI"
 sudo raspi-config nonint do_i2c 0
 sudo raspi-config nonint do_spi 0
-echo "done."
 
+echo "Running Firmware Test"
+sudo /home/pi/Dexter/GrovePi/Troubleshooting/all_tests.sh
+
+echo "done"
 exit 0
