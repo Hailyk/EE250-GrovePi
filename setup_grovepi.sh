@@ -32,6 +32,9 @@ echo "Flashing Complete"
 echo "Reenabling I2C and SPI"
 sudo raspi-config nonint do_i2c 0
 sudo raspi-config nonint do_spi 0
-echo "done."
 
+echo "Running Firmware Test"
+sudo /home/pi/Dexter/GrovePi/Troubleshooting/all_tests.sh
+
+echo "done"
 exit 0
