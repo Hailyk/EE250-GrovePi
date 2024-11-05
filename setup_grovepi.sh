@@ -1,4 +1,7 @@
 #! /bin/bash
+echo "Script created by @HailyK"
+sleep 5 
+
 echo "Disabling I2C and SPI"
 sudo raspi-config nonint get_i2c >> /dev/null 2>&1
 if [ $? -eq 0 ]; then
